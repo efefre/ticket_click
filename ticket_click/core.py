@@ -26,6 +26,7 @@ def cli(start_date, stop_date, cancel_date, period, ticket_price):
         while True:
             try:
                 start_date = Ticket.convert_date(start_date)
+                stop_date = Ticket.convert_date(stop_date)
                 break
             except ValueError:
                 raise click.ClickException('-- Wprowadzona data aktywacji biletu jest błędna! ---')
