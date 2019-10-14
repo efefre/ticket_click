@@ -29,3 +29,6 @@ def cli(start_date, stop_date, cancel_date, period, ticket_price):
                 break
             except ValueError:
                 raise click.ClickException('-- Wprowadzona data aktywacji biletu jest błędna! ---')
+
+    if start_date == None:
+        start_date = stop_date - pendulum.duration(days=period) + pendulum.duration(days=1)
