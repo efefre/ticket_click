@@ -35,3 +35,15 @@ def cli(start_date, stop_date, cancel_date, period, ticket_price):
 
     while period != 30 and period != 90:
         raise click.ClickException('-- Wprowadzono błędną wartość! ---')
+
+    while True:
+        try:
+            cancel_date = Ticket.convert_date(cancel_date)
+            if cancel_date < start_date:
+                raise click.ClickException("-- Nie można zwrócić biletu przed jego aktywacją! --")
+            elif cancel_date > stop_date:
+                raise click.ClickException('-- Nie można zwrócić biletu po terminie ważnośći! --')
+            else:
+                break
+        except ValueError:
+            raise click.ClickException('--- Wprowadzona data anulowania biletu jest błędna! ---')
