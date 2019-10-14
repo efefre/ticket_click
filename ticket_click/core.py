@@ -14,9 +14,3 @@ def cli(start_date, stop_date, cancel_date, period, ticket_price):
     """ This is a simple app in which you can count how much money you will receive back,
         if you cancel your ZTM (Warsaw) ticket."""
 
-    click.echo("""
-    ******************************************************************************************************
-    Jeżeli nie pamiętasz daty aktywacji biletu, to podaj datę końca ważności biletu
-    i rodzaj biletu (30/90 dni).
-    ******************************************************************************************************
-    """)
