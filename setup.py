@@ -10,6 +10,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        core=ticket_click.core:cli
+        ticket=ticket_click.core:cli
     ''',
 )
