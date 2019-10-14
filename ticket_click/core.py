@@ -49,3 +49,6 @@ def cli(start_date, stop_date, cancel_date, period, ticket_price):
             raise click.ClickException('--- Wprowadzona data anulowania biletu jest błędna! ---')
 
     ticket_price = round(ticket_price, 2)
+
+    new_ticket = Ticket(start_date, period, stop_date, cancel_date, ticket_price)
+    click.echo(new_ticket.count_money_back())
