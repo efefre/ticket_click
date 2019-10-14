@@ -47,3 +47,5 @@ def cli(start_date, stop_date, cancel_date, period, ticket_price):
                 break
         except ValueError:
             raise click.ClickException('--- Wprowadzona data anulowania biletu jest błędna! ---')
+
+    ticket_price = round(ticket_price, 2)
