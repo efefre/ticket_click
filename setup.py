@@ -7,6 +7,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'Click',
+        'pendulum'
     ],
     entry_points='''
         [console_scripts]
