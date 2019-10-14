@@ -32,3 +32,6 @@ def cli(start_date, stop_date, cancel_date, period, ticket_price):
 
     if start_date == None:
         start_date = stop_date - pendulum.duration(days=period) + pendulum.duration(days=1)
+
+    while period != 30 and period != 90:
+        raise click.ClickException('-- Wprowadzono błędną wartość! ---')
