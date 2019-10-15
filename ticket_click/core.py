@@ -52,4 +52,8 @@ def cli(start_date, stop_date, cancel_date, period, ticket_price):
     ticket_price = round(ticket_price, 2)
 
     new_ticket = Ticket(start_date, period, stop_date, cancel_date, ticket_price)
-    click.echo(new_ticket.count_money_back())
+    result = new_ticket.count_money_back()
+
+    click.echo(f'\nOpłata manipulacyjna: {result.get("handling_fee")} zł \
+               \n\nDo zwrotu: {result.get("money_back")} zł. \
+               \nPoniesiony koszt: {result.get("costs_incurred")} zł ({result.get("one_day_cost")} zł/dzień)')
