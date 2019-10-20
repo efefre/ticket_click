@@ -1,9 +1,19 @@
 import pendulum
+import configparser
+import os
+
 
 class Ticket:
     #handling fee is 20% but not more than 50 zl
-    handling_fee_percent = 0.2
-    max_handling_fee = 50
+
+    config = configparser.ConfigParser()
+    if os.path.isfile('ticket_click/config.ini'):
+        config.read('ticket_click/config.ini')
+        handling_fee_percent = float(config['HANDLING FEE']['handling_fee_percent'])
+        max_handling_fee = float(config['HANDLING FEE']['max_handling_fee'])
+    else:
+        handling_fee_percent = 0.2
+        max_handling_fee = 50
 
     def __init__(self, start_date = None, day = 0, stop_date = None, cancel_date = None, ticket_price = None):
         self.start_date = start_date
