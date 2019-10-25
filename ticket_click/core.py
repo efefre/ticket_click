@@ -1,7 +1,12 @@
 import click
 import pendulum
 
+
 from ticket_click.utils import Ticket
+from ticket_click.utils import create_config
+
+# add config file
+create_config()
 
 
 @click.command()
