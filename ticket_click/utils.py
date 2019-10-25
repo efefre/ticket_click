@@ -36,9 +36,10 @@ class Ticket:
 
     def count_money_back(self):
         config = configparser.ConfigParser()
+        config_file_path = os.path.expanduser('~') + '/.ticket_click/.ticket_click_conf.ini'
 
-        if os.path.isfile('ticket_click/config.ini'):
-            config.read('ticket_click/config.ini')
+        if os.path.isfile(config_file_path):
+            config.read(config_file_path)
             self.handling_fee_percent = float(config['HANDLING FEE']['handling_fee_percent'])
             self.max_handling_fee = float(config['HANDLING FEE']['max_handling_fee'])
         else:
