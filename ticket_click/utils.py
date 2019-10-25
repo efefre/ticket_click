@@ -35,16 +35,17 @@ class Ticket:
         return pendulum.date(int(year), int(month), int(day))
 
     def count_money_back(self):
-        config = configparser.ConfigParser()
-        config_file_path = os.path.expanduser('~') + '/.ticket_click/.ticket_click_conf.ini'
+        if self.handling_fee_percent == None or self.max_handling_fee == None:
+            config = configparser.ConfigParser()
+            config_file_path = os.path.expanduser('~') + '/.ticket_click/.ticket_click_conf.ini'
 
-        if os.path.isfile(config_file_path):
-            config.read(config_file_path)
-            self.handling_fee_percent = float(config['HANDLING FEE']['handling_fee_percent'])
-            self.max_handling_fee = float(config['HANDLING FEE']['max_handling_fee'])
-        else:
-            self.handling_fee_percent = 0.2
-            self.max_handling_fee = 50
+            if os.path.isfile(config_file_path):
+                config.read(config_file_path)
+                self.handling_fee_percent = float(config['HANDLING FEE']['handling_fee_percent'])
+                self.max_handling_fee = float(config['HANDLING FEE']['max_handling_fee'])
+            else:
+                self.handling_fee_percent = 0.2
+                self.max_handling_fee = 50
 
         self.handling_fee = self.handling_fee_percent * self.ticket_price
         if self.handling_fee > self.max_handling_fee:
