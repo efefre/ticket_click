@@ -3,6 +3,20 @@ import configparser
 import os
 
 
+def create_config():
+    config_dir = os.path.expanduser('~') + '/.ticket_click'
+    config_file_path = config_dir + '/.ticket_click_conf.ini'
+
+    if not os.path.isdir(config_dir):
+        os.mkdir(config_dir)
+    elif not os.path.isfile(config_file_path):
+        config = configparser.ConfigParser()
+        config['HANDLING FEE'] = {'handling_fee_percent' : 0.2,
+                                  'max_handling_fee' : 50}
+        with open(config_file_path, 'w') as configfile:
+            config.write(configfile)
+
+
 class Ticket:
 
     def __init__(self, start_date = None, day = 0, stop_date = None, cancel_date = None, ticket_price = None, handling_fee_percent = None, max_handling_fee = None):
