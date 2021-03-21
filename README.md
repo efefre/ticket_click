@@ -15,4 +15,4 @@ This is update of: https://github.com/efefre/tickets This time I've used Click p
 
 
 ## Status
-Project is: _in progress_.
+Project is: _no longer continue_.
